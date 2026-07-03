@@ -1,4 +1,4 @@
-const bookStore = {
+const bookstore = {
     name: 'Flatbooks Technical Books',
     books: [
         {
@@ -43,5 +43,29 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+const bookstoreTitle =document.getElementById('header');//Selects the Title Element
 
+bookstoreTitle.textContent=bookstore.name;//Change element to match bookstore name 
+
+//Looping through every book element 
+const bookList = document.getElementById('book-list');
+bookstore.books.forEach(book => {
+
+const bookContainer=document.createElement('li');//creates an li element;
+
+const bookTitle=document.createElement('h3');//creates h3 element
+bookTitle.textContent = book.title;
+
+
+const bookAuthor = document.createElement('p');
+bookAuthor.textContent = book.author;//creates the p for author
+
+const bookImage =document.createElement('img');//creates image for image
+bookImage.src =book.imageUrl;
+bookImage.alt =book.title;
+
+//appending book elements tobookList
+bookContainer.append(bookTitle,bookAuthor,bookImage);
+bookList.append(bookContainer)
+
+})
